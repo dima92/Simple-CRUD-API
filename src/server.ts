@@ -8,7 +8,7 @@ const { pid } = process;
 const HOST = config.HOST || 'localhost';
 const PORT = config.PORT || 5000;
 
-const app = new App();
+const app = new App(db);
 
 const server = createServer((req, res) => {
   app.onRequest(req, res);

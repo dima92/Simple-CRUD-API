@@ -131,10 +131,10 @@ export class App {
       });
 
       req.on('end', async () => {
-        const { data, err } = await this.db.addUser(JSON.parse(body));
-        if (err) {
+        const { data, error } = await this.db.addUser(JSON.parse(body));
+        if (error) {
           res.statusCode = 404;
-          res.write(JSON.stringify({ err }));
+          res.write(JSON.stringify({ error }));
           res.end();
         } else {
           res.statusCode = 201;
@@ -157,8 +157,8 @@ export class App {
       });
 
       req.on('end', async () => {
-        const { user, err } = await this.db.updateUser(id, JSON.parse(body));
-        if (err) {
+        const { user, error } = await this.db.updateUser(id, JSON.parse(body));
+        if (error) {
           res.statusCode = 404;
           res.write(JSON.stringify({ error: 'Record does not exist' }));
           res.end();
