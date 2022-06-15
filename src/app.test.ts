@@ -4,14 +4,14 @@ import { createServer } from 'http';
 
 import { db } from './db';
 import { App } from './app';
-import { Person } from './interface/Person';
+import { IUser } from './interface/IUser';
 
 const app = new App(db);
 
 describe('Test crud methods', () => {
   const serverTest = createServer((req, res) => app.onRequest(req, res));
   let id = v4();
-  let createdUser: Person = null;
+  let createdUser: IUser = null;
 
   afterAll(() => serverTest.close());
   test('should respond with a 200 status code and empty array', async () => {

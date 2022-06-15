@@ -26,19 +26,19 @@ npm install
 
 5. Доступные Rest Endpoints
 
-| Type   | Route         | Explanation         |
-|--------|---------------|---------------------|
-| Post   | /api/users    | Create person       |
-| Get    | /api/users    | Get all persons     |
-| Get    | /api/users/id | Get person by id    |
-| Put    | /api/users/id | Update person by id |
-| Delete | /api/users/id | Delete person by id |
+| Type   | Route         | Explanation       |
+|--------|---------------|-------------------|
+| Post   | /api/users    | Create user       |
+| Get    | /api/users    | Get all users     |
+| Get    | /api/users/id | Get user by id    |
+| Put    | /api/users/id | Update user by id |
+| Delete | /api/users/id | Delete user by id |
 
 
 6. Данные следует передавать в json формате. Пример валидных данных:
 ```
 {
-    "name": "Test User",
+    "username": "Test User",
     "age": 30,
     "hobbies": ["programming", "guitar"]
 }

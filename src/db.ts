@@ -1,11 +1,11 @@
 import { UserDTO } from './interface/UserDTO';
 import { userSchema } from './utils/schema';
-import { Person } from './interface/Person';
+import { IUser } from './interface/IUser';
 
 export class DB {
-  users: Array<Person> = [];
+  users: Array<IUser> = [];
 
-  checkUserData(data: Omit<Person, 'id'>, schema: Map<string, string>) {
+  checkUserData(data: Omit<IUser, 'id'>, schema: Map<string, string>) {
     const keys = Array.from(schema.keys()).filter((key) => !data[key]);
     return !!keys.length;
   }
@@ -19,7 +19,7 @@ export class DB {
     return found || null;
   }
 
-  async addUser(payload: Omit<Person, 'id'>) {
+  async addUser(payload: Omit<IUser, 'id'>) {
     const isValid = this.checkUserData(payload, userSchema);
     if (isValid) {
       return {
@@ -27,7 +27,7 @@ export class DB {
         error: 'Request does not contain required fields'
       };
     }
-    const newItem = new UserDTO(payload) as Person;
+    const newItem = new UserDTO(payload) as IUser;
     this.users.push(newItem);
     return {
       data: newItem,
@@ -35,7 +35,7 @@ export class DB {
     };
   }
 
-  async updateUser(id: string, data: Partial<Omit<Person, 'id'>>) {
+  async updateUser(id: string, data: Partial<Omit<IUser, 'id'>>) {
     const found = this.users.findIndex((user) => user.id === id);
 
     if (found < 0) {

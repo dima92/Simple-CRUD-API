@@ -1,5 +1,5 @@
 import { v4 } from 'uuid';
-import { Person } from './Person';
+import { IUser } from './IUser';
 
 export class UserDTO {
   id: string;
@@ -7,7 +7,7 @@ export class UserDTO {
   age: number;
   hobbies: Array<string>;
 
-  constructor(data: Omit<Person, 'id'>) {
+  constructor(data: Omit<IUser, 'id'>) {
     this.username = data.username;
     this.age = data.age;
     this.hobbies = data.hobbies;
