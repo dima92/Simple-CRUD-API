@@ -1,9 +1,11 @@
 import { cpus } from 'os';
 import cluster from 'cluster';
+import { DB, db } from './db';
+import { SingleServer } from './server';
 
 const { pid } = process;
 
-const start = async () => {
+const start = async (db: DB) => {
   const numCpus = cpus().length;
 
   if (cluster.isPrimary) {
@@ -17,9 +19,9 @@ const start = async () => {
       console.log(`Воркер с pid= ${worker.process.pid} умер`);
     });
   } else {
-    await import ('./server');
+    const server = new SingleServer(db);
     console.log(`Воркер с pid= ${process.pid} запущен`);
   }
 };
 
-start();
+start(db);
