@@ -1,0 +1,38 @@
+{
+  "name": "simple-crud-api",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest",
+    "start:prod": "tsc && node dist/index.js",
+    "start:dev": "ts-node --transpile-only ./src/index.ts",
+    "start:multi": "tsc && node dist/multi.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dima92/Simple-CRUD-API.git"
+  },
+  "browserslist": "> 0.25%, not dead",
+  "keywords": [],
+  "author": "Dmitry Tkachenko<dima-tkachenko@mail.ru>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/dima92/Simple-CRUD-API/issues"
+  },
+  "homepage": "https://github.com/dima92/Simple-CRUD-API#readme",
+  "dependencies": {
+    "cross-env": "^7.0.3",
+    "dotenv": "^16.0.1",
+    "uuid": "^8.3.2"
+  },
+  "devDependencies": {
+    "@types/jest": "^28.1.1",
+    "@types/supertest": "^2.0.12",
+    "@types/uuid": "^8.3.4",
+    "jest": "^28.1.1",
+    "supertest": "^6.2.3",
+    "ts-jest": "^28.0.4",
+    "ts-node": "^10.8.1"
+  }
+}
